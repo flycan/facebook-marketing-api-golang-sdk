@@ -255,6 +255,7 @@ type AdCreative struct {
 	TemplateURLSpec json.RawMessage `json:"template_url_spec,omitempty"`
 	// Ad Labels that are associated with this creative
 	Adlabels []json.RawMessage `json:"adlabels,omitempty"`
+	AdAssetFeedSpec map[string]interface{} `json:"asset_feed_spec,omitempty"`
 }
 
 type adCreativeContainer struct {
@@ -499,4 +500,16 @@ type IosAppLink struct {
 	AppStoreID string `json:"app_store_id,omitempty"`
 	// The native iOS URL that will be navigated to.
 	URL string `json:"url,omitempty"`
+}
+
+type AdAssetFeedSpec struct {
+	AdFormats []string `json:"ad_formats,omitempty"`
+	AdAssetFeedAdditionalData *AdAssetFeedAdditionalData `json:"additional_data,omitempty"`
+	AppProductPageID string `json:"app_product_page_id,omitempty"`
+}
+
+type AdAssetFeedAdditionalData struct {
+	BrandPageID string `json:"brand_page_id,omitempty"`
+	IsClickToMessage bool `json:"is_click_to_message,omitempty"`
+	MultiShareEndCard bool `json:"multi_share_end_card,omitempty"`
 }

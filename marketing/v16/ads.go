@@ -16,11 +16,12 @@ type AdService struct {
 }
 
 // Get returns a single ad.
-func (as *AdService) Get(ctx context.Context, id string) (*Ad, error) {
+func (as *AdService) Get(ctx context.Context, id string, fields ...string) (*Ad, error) {
+	if len(fields) == 0 {
+		fields = AdsetFields
+	}
 	res := &Ad{}
-	err := as.c.GetJSON(ctx, fb.NewRoute(Version, "/%s", id).Fields("id", "creative", "name", "account_id", "adset_id",
-		"adset{id,daily_budget,name,start_time,end_time,status,bid_strategy,targeting{age_min,age_max,publisher_platforms,geo_locations,genders,custom_audiences,excluded_custom_audiences,flexible_spec,exclusions}}",
-		"adcreatives{id,title,object_story_spec}").Limit(1000).String(), res)
+	err := as.c.GetJSON(ctx, fb.NewRoute(Version, "/%s", id).Fields(fields...).String(), res)
 	if err != nil {
 		if fb.IsNotFound(err) {
 			return nil, nil
@@ -137,12 +138,16 @@ type Ad struct {
 	Name          string                  `json:"name,omitempty"`
 	Status        string                  `json:"status,omitempty"`
 	AdsetID       string                  `json:"adset_id,omitempty"`
+	CampaignID    string                  `json:"campaign_id,omitempty"`
 	Creative      *AdCreative             `json:"creative,omitempty"`
 	Adset         *Adset                  `json:"adset,omitempty"`
 	TrackingSpecs []ConversionActionQuery `json:"tracking_specs,omitempty"`
 	Adcreatives   *struct {
 		Data []AdCreative `json:"data,omitempty"`
 	} `json:"adcreatives,omitempty"`
+	ConfiguredStatus string `json:"configured_status,omitempty"`
+	EffectiveStatus  string `json:"effective_status,omitempty"`
+	SourceAdID       string `json:"source_ad_id,omitempty"`
 }
 
 // ConversionActionQuery contains tracking specs.
@@ -151,4 +156,14 @@ type ConversionActionQuery struct {
 	FbPixel    []string `json:"fb_pixel,omitempty"`
 	Page       []string `json:"page,omitempty"`
 	Post       []string `json:"post,omitempty"`
+}
+
+// AdAssetFeedSpecVideo see https://developers.facebook.com/docs/marketing-api/reference/ad-asset-feed-spec-video/
+type AdAssetFeedSpecVideo struct {
+	Adlabels      []json.RawMessage `json:"adlabels,omitempty"`
+	CaptionIDs    []string          `json:"caption_ids,omitempty"`
+	ThumbnailHash string            `json:"thumbnail_hash,omitempty"`
+	ThumbnailUrl  string            `json:"thumbnail_url,omitempty"`
+	UrlTags       string            `json:"url_tags,omitempty"`
+	VideoID       string            `json:"video_id,omitempty"`
 }
