@@ -1,6 +1,6 @@
-module github.com/justwatch/facebook-marketing-api-golang-sdk
+module github.com/flycan/facebook-marketing-api-golang-sdk
 
-go 1.20
+go 1.21.1
 
 require (
 	github.com/PuerkitoBio/goquery v1.5.0

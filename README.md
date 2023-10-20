@@ -1,22 +1,5 @@
 # Facebook Marketing API SDK for Golang
 
-<!-- [![Go reference](https://pkg.go.dev/https://github.com/justwatch/facebook-marketing-api-golang-sdk)](https://goreportcard.com/report/https://pkg.go.dev/https://github.com/justwatch/facebook-marketing-api-golang-sdk) -->
-
-[![Go Report Card](https://goreportcard.com/badge/github.com/justwatch/facebook-marketing-api-golang-sdk)](https://goreportcard.com/report/github.com/justwatch/facebook-marketing-api-golang-sdk)
-[![](https://godoc.org/github.com/justwatch/facebook-marketing-api-golang-sdk?status.svg)](http://godoc.org/github.com/justwatch/facebook-marketing-api-golang-sdk)
-
-This go package provides a comprehensive list of methods for interacting with Facebook's Graph Marketing api.
-
----
-
-![JustWatch logo](logo.png)
-
-## You enjoy working with the Facebook Marketing API? We are hiring! 
-
-Find out what open positions we have at the moment and why JustWatch is a great place to work at: https://www.justwatch.com/us/talent
-
----
-
 The SDK supports crud operations for the following entities:
 
 - ad_account
@@ -44,7 +27,7 @@ We assume you already have a Facebook Developer account and configured an `acces
 
 ```go
 import(
-	"github.com/justwatch/facebook-marketing-api-golang-sdk/marketing/v16"
+	"github.com/flycan/facebook-marketing-api-golang-sdk/marketing/v16"
 )
 
 func main(){
