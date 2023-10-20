@@ -204,6 +204,7 @@ type Adset struct {
 	TargetingOptimizationTypes map[string]int32       `json:"targeting_optimization_types,omitempty"`
 	DSABeneficiary             string                 `json:"dsa_beneficiary,omitempty"`
 	DSAPayor                   string                 `json:"dsa_payor,omitempty"`
+	IsDynamicCreative          bool                   `json:"is_dynamic_creative,omitempty.bool"`
 }
 
 // FrequencyControlSpec controls the frequency of an adset.
