@@ -9,7 +9,7 @@ import (
 )
 
 // Version of the graph API being used.
-const Version = "v16.0"
+var Version = "v16.0"
 
 // Service interacts with the Facebook Marketing API.
 type Service struct {
@@ -70,4 +70,8 @@ func (s *Service) GetMetadata(ctx context.Context, id string) (*fb.Metadata, err
 	}
 
 	return res.Metadata, nil
+}
+
+func (s *Service) SetVersion(version string) {
+	Version = version
 }
