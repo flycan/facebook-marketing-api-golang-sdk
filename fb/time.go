@@ -9,7 +9,7 @@ import (
 // the one used for unmarshaling time fields by the encoding/json Go package.
 type Time time.Time
 
-const tsFormat = "2006-01-02T15:04:05-0700"
+const tsFormat = "2006-01-02T15:04:05+0800"
 
 // UnmarshalJSON implements json.Unmarshaler.
 func (t *Time) UnmarshalJSON(data []byte) error {
