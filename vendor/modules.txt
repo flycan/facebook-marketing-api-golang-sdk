@@ -42,3 +42,4 @@ golang.org/x/net/html/atom
 # golang.org/x/sync v0.0.0-20190227155943-e225da77a7e6
 ## explicit
 golang.org/x/sync/errgroup
+# github.com/justwatch/facebook-marketing-api-golang-sdk v0.0.0-20231020014712-cf405ba3691d => github.com/flycan/facebook-marketing-api-golang-sdk v0.0.0-20231020014712-cf405ba3691d
