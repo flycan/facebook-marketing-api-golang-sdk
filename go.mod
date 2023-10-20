@@ -20,3 +20,5 @@ require (
 	github.com/smartystreets/assertions v0.0.0-20180927180507-b2de0cb4f26d // indirect
 	golang.org/x/net v0.0.0-20181114220301-adae6a3d119a // indirect
 )
+
+replace github.com/justwatch/facebook-marketing-api-golang-sdk v0.0.0-20231020014712-cf405ba3691d => github.com/flycan/facebook-marketing-api-golang-sdk v0.0.0-20231020014712-cf405ba3691d
